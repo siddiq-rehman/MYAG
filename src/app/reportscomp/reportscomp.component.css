@@ -1,0 +1,28 @@
+.reports{
+    width: 100% !important;
+    
+    background-color:rgb(219,215, 193) !important;
+    
+   
+}
+
+
+.repHeader p{
+margin-bottom: 0px;
+   
+}
+
+.repHeader{
+   
+    border-bottom: 2px solid black;
+    padding-bottom: 20px;
+}
+
+app-filter{
+display: block !important;
+float: left;
+width:25%;
+}
+
+
+

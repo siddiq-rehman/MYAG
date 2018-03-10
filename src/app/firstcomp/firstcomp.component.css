@@ -1,0 +1,51 @@
+#mapsId{
+
+  
+  position: relative;
+  
+}
+
+agm-map{
+
+  width:100%;
+  height:100%
+
+}
+
+
+
+/* Fading animation */
+.fading {
+ /* -webkit-animation-name: widthanime;
+  -webkit-animation-duration: 1.5s;
+  animation-name: widthanime;
+  animation-duration: 1.5s;*/
+  -webkit-animation: widthanime 0.75s ease-out;
+  animation: widthanime 0.75s ease-out;
+}
+
+@-webkit-keyframes widthanime {
+  from {width: 100%} 
+  to {width: 20%}
+}
+
+@keyframes widthanime {
+  from {width: 100%} 
+  to {width: 20%}
+}
+
+
+
+
+
+
+
+
+.is-visible {
+  display: inline-block;
+}
+
+.is-open {
+  margin-left: 0px;
+  opacity: 1;
+}

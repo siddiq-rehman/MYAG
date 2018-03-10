@@ -1,0 +1,47 @@
+<div class="carousel-container">
+  <div class="border-slide">
+      <div class="form-group mySlides fading">
+        <br>
+        <label for="comment">Alert description:</label>
+        <textarea class="form-control" rows="5" id="comment">slide1</textarea>
+        <br>
+        <label for="comment">Comment:</label>
+        <textarea class="form-control" rows="5" id="comment">slide1</textarea>
+        <br>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Acknowledge</button>
+        <br>
+      </div>
+  
+      <div class="form-group mySlides fading">
+          <br>
+          <label for="comment">Alert description:</label>
+          <textarea class="form-control" rows="5" id="comment">slide2</textarea>
+          <br>
+          <label for="comment">Comment:</label>
+          <textarea class="form-control" rows="5" id="comment">slide3</textarea>
+          <br>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Acknowledge</button>
+          <br>
+      </div>
+      <div class="form-group mySlides fading">
+        <br>
+        <label for="comment">Alert description:</label>
+        <textarea class="form-control" rows="5" id="comment">slide3</textarea>
+        <br>
+        <label for="comment">Comment:</label>
+        <textarea class="form-control" rows="5" id="comment">slide3</textarea>
+        <br>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Acknowledge</button>
+        <br>
+    </div>
+    </div>
+      <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
+      <a class="next" (click)="plusSlides(1)">&#10095;</a>
+  
+  <div style="text-align:center">
+    <span class="dot" (click)="currentSlide(1)"></span> 
+    <span class="dot" (click)="currentSlide(2)"></span> 
+    <span class="dot" (click)="currentSlide(3)"></span> 
+  </div>
+  
+  </div>

@@ -1,0 +1,37 @@
+
+
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+
+
+
+<div id="mapsId" >
+<agm-map id="ag" [latitude]="lat" [longitude]="lng" [zoom]="customzoom" (mapClick)="onClickEvent($event)" 
+(centerChange)="centerChange($event)"
+>
+  <agm-marker 
+  [latitude]="lat" 
+  [longitude]="lng"
+  ></agm-marker>
+
+</agm-map>
+
+</div> 
+
+<app-ackment></app-ackment> 
+
+
+<!--
+<agm-map
+[latitude]="lat"
+[longitude]="log"
+[zoom]="customzoom"
+
+(centerChange)="centerChange($event)"
+(mapClick)="onClickEvent($event)"
+id="AgmMap"
+#AgmMap>
+<agm-marker [latitude]="lat" [longitude]="lng" [markerClickable]="true"></agm-marker>
+</agm-map>
+
+-->

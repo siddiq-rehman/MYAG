@@ -1,0 +1,54 @@
+.filter{
+    background-color:rgb(219,215, 193);
+
+}
+label{margin-left: 20px;}
+#frmdatepicker{
+    width:80%; 
+    margin: 0 20px 20px 20px;}
+#frmdatepicker > span:hover{cursor: pointer;}
+#todatepicker{width:80%; margin: 0 20px 20px 20px;}
+#todatepicker > span:hover{cursor: pointer;}
+
+.filterdet{
+
+    border-right: 2px solid black;
+}
+
+.form-control{
+
+    border-bottom-left-radius:30px!important;
+    border-top-left-radius:30px !important
+}
+
+.input-group-addon{
+    border-bottom-right-radius:30px!important;
+    border-top-right-radius:30px !important
+
+}
+
+.form-group{
+    width:80% !important;
+    margin: 0 20px 20px 20px;
+}
+
+.txtar{
+  
+}
+
+#sel1{
+    border-radius: 20px !important;
+   
+    padding-right: 20px !important; 
+}
+
+.rta{
+    border-bottom-right-radius:30px!important;
+    border-top-right-radius:30px !important;
+    padding: 10px !important;
+}
+
+textarea{
+    
+      resize: none !important;
+}

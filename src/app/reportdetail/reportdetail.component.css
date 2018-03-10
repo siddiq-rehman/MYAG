@@ -1,0 +1,20 @@
+.reportDetail{
+
+    background-color: rgb(219,215, 193) !important;
+    overflow-y: auto;
+}
+
+.routetable{
+
+    padding: 10px;
+}
+
+footer{
+    padding: 30px !important;
+    float: right !important;
+}
+
+footer .btn-default{
+    background-color: rgb(238, 231, 231) !important;
+    border-color: black !important;
+}
