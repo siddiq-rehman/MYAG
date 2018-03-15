@@ -4,21 +4,27 @@
 <!-- the component as the initial center of the map: -->
 
 
-
+<div class="dashboard">
 <div id="mapsId" >
-<agm-map id="ag" [latitude]="lat" [longitude]="lng" [zoom]="customzoom" (mapClick)="onClickEvent($event)" 
-(centerChange)="centerChange($event)"
+<agm-map [@myanime] = "state" id="ag"  [latitude]="mlat" [longitude]="mlng" [zoom]="customzoom" (mapClick)="onClickEvent($event)" 
+(centerChange)="centerChange($event)" [styles]="mapStyles"
 >
   <agm-marker 
-  [latitude]="lat" 
-  [longitude]="lng"
-  ></agm-marker>
-
+  [latitude]="location.lat" 
+  [longitude]="location.lng"
+  [iconUrl]="location.url"
+  [label]="location.label"
+  (markerClick)="clickedMarker(location.lat,location.lng, i)"
+  *ngFor="let location of locations; let i=index"
+  >
+</agm-marker>
 </agm-map>
 
 </div> 
 
-<app-ackment></app-ackment> 
+<app-ackment [@myanime1] = "state2" class="ackmnt" id="myac"></app-ackment>
+
+</div>
 
 
 <!--

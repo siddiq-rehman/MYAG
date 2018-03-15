@@ -1,15 +1,37 @@
 #mapsId{
-
-  
+ 
+  width:100% !important;
+  height:100% !important;
+  display: inline-block !important;
   position: relative;
-  
+
 }
 
 agm-map{
 
-  width:100%;
-  height:100%
 
+  
+
+}
+
+.ackmnt{
+
+  display: inline-block;
+  width: 80%;
+  vertical-align: top;
+  
+  
+}
+
+.dashboard{
+
+  width: 100%;
+  height:100%;
+  
+  overflow-x: hidden;
+    white-space: nowrap; 
+   
+    
 }
 
 
@@ -34,6 +56,25 @@ agm-map{
   to {width: 20%}
 }
 
+.fading1 {
+  /* -webkit-animation-name: widthanime;
+   -webkit-animation-duration: 1.5s;
+   animation-name: widthanime;
+   animation-duration: 1.5s;*/
+   -webkit-animation: widthanime1 0.75s ease-out;
+   animation: widthanime1 0.75s ease-out;
+ }
+ 
+ @-webkit-keyframes widthanime1 {
+   from {width: 20%} 
+   to {width: 100%}
+ }
+ 
+ @keyframes widthanime1 {
+   from {width: 20%} 
+   to {width: 100%}
+ }
+
 
 
 
@@ -49,3 +90,5 @@ agm-map{
   margin-left: 0px;
   opacity: 1;
 }
+
+

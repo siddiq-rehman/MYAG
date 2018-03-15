@@ -15,6 +15,8 @@ import { AnimeComponent } from './anime/anime.component';
 import { FilterComponent } from './filter/filter.component';
 import { ReportdetailComponent } from './reportdetail/reportdetail.component';
 import { DlDateTimePickerDateModule } from 'angular-bootstrap-datetimepicker';
+import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 
 
 
@@ -36,6 +38,8 @@ import { DlDateTimePickerDateModule } from 'angular-bootstrap-datetimepicker';
     BrowserModule,
     DlDateTimePickerDateModule,
     BrowserAnimationsModule,
+    AgmJsMarkerClustererModule,
+    AgmSnazzyInfoWindowModule,
     RouterModule.forRoot([
       {path: '',component: FirstcompComponent},
       {path: 'reports',component: ReportscompComponent},

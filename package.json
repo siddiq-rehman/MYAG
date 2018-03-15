@@ -13,6 +13,8 @@
   "private": true,
   "dependencies": {
     "@agm/core": "^1.0.0-beta.2",
+    "@agm/js-marker-clusterer": "^1.0.0-beta.2",
+    "@agm/snazzy-info-window": "^1.0.0-beta.2",
     "@angular/animations": "^5.2.4",
     "@angular/common": "^5.2.0",
     "@angular/compiler": "^5.2.0",
@@ -28,10 +30,12 @@
     "bootstrap": "^4.0.0",
     "core-js": "^2.4.1",
     "jquery": "^3.3.1",
+    "js-marker-clusterer": "^1.0.0",
     "moment": "^2.21.0",
     "mydatepicker": "^2.6.2",
     "open-iconic": "^1.1.1",
     "rxjs": "^5.5.6",
+    "snazzy-info-window": "^1.1.0",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {

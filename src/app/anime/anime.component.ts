@@ -7,26 +7,37 @@ import * as $ from 'jquery';
   templateUrl: './anime.component.html',
   styleUrls: ['./anime.component.css'],
   animations: [
-    trigger('myAwesomeAnimation', [
-        state('small', style({
-            display:"none"
-           
-        })),
-        state('large', style({
-          width: '80%',
-          display:"inline-block"
-           
-        })),
-        transition('small => large', animate('1000ms ease-in')),
-    ]),
+    trigger('myanimation',[
+      state('smaller',style({
+         transform : 'translateY(100px)'
+      })),
+      state('larger',style({
+         transform : 'translateY(0px)'
+      })),
+      transition('smaller <=> larger',animate('1000ms ease-in'))
+   ]),
+   trigger('myanime',[
+    state('smaller',style({
+     display:"none",
+     
+    })),
+    state('larger',style({
+      display:"inline-block",
+    })),
+    transition('smaller <=> larger',animate('1000ms ease-in'))
+ ])
+
   ]
 })
 export class AnimeComponent implements OnInit {
 
-  state: string = 'small';
+  state: string = 'larger';
+  state1: string = 'basic';
+  state2: string = 'smaller';
   
     animateMe() {
-          this.state = (this.state === 'small' ? 'large' : 'small');
+          this.state = (this.state === 'smaller' ? 'larger' : 'smaller');
+          this.state2 = (this.state2 === 'smaller' ? 'larger' : 'smaller');
        //  $("#myp").animate({ // id of your animated object
          // "display": "block",
          // "margin-top": "-82%",

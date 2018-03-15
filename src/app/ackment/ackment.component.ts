@@ -20,7 +20,7 @@ export class AckmentComponent implements OnInit {
     console.log($(window).height())
     let mapsheight=$(window).height()-$(".nav-tabs").height();
     console.log(mapsheight)
-    $('.routdiv').css("height",mapsheight)
+    $('.ackmnt').css("height",mapsheight-5);
   }
 
 

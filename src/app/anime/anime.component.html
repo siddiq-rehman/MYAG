@@ -1,2 +1,17 @@
-<p  id="myp" >I will animate</p>
-<button (click)="animateMe()">click</button>
+<div class="i">
+    <button (click)="animateMe()">Click Me</button>
+    <div class="rotate">
+       <img src="assets/Green.png" width="100" height="100">
+    </div>
+
+ 
+
+
+ </div>
+
+ <div class="main">
+
+ <div [@myanime] = "state" class="A"></div>
+ <div [@myanime] = "state2" class="B"></div>
+
+</div>
