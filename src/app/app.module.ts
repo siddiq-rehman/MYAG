@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { FirstcompComponent } from './firstcomp/firstcomp.component';
 
 
+
 import { RouterModule} from '@angular/router';
 import { AgmCoreModule } from '@agm/core';
 import { ReportscompComponent } from './reportscomp/reportscomp.component';
@@ -17,6 +18,10 @@ import { ReportdetailComponent } from './reportdetail/reportdetail.component';
 import { DlDateTimePickerDateModule } from 'angular-bootstrap-datetimepicker';
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
+
+import { MyserviceService } from './myservice.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -36,6 +41,7 @@ import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     DlDateTimePickerDateModule,
     BrowserAnimationsModule,
     AgmJsMarkerClustererModule,
@@ -44,13 +50,14 @@ import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
       {path: '',component: FirstcompComponent},
       {path: 'reports',component: ReportscompComponent},
       {path: 'ack',component: AckmentComponent},
-      {path: 'anime',component: AnimeComponent}
+      {path: 'anime',component: AnimeComponent},
+
    ]),
    AgmCoreModule.forRoot({
     apiKey: 'AIzaSyAoFR6w73YwSUm8NVoodapN2zNB08u_8Xw'
   })
   ],
-  providers: [],
+  providers: [MyserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

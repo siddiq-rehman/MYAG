@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, ViewChild, HostListener } from '@angul
 import { Router } from '@angular/router';
 import { trigger,state,style,transition,animate,keyframes } from '@angular/animations'; 
 import * as $ from 'jquery';
+import { MyserviceService } from '../myservice.service';
 
 @Component({
   selector: 'app-firstcomp',
@@ -16,7 +17,7 @@ import * as $ from 'jquery';
     state('larger',style({
       width:'100%'
     })),
-    transition('smaller <=> larger',animate('1000ms linear'))
+    transition('smaller <=> larger',animate('700ms linear'))
  ]),
  trigger('myanime1',[
   state('bsmaller',style({
@@ -29,17 +30,19 @@ import * as $ from 'jquery';
     'white-space':'nowrap',
     transform: 'translateX(-100%)'
   })),
-  transition('bsmaller <=> blarger',animate('1000ms linear'))
+  transition('bsmaller <=> blarger',animate('700ms linear'))
 ])
 
 
   ]
 })
+
 export class FirstcompComponent implements OnInit {
 
-  constructor(private router: Router) { 
+  constructor(private router: Router, private myservice: MyserviceService) { 
     this.router= router;
     let map;
+    
   }
 
   title: string = 'My first AGM project';
@@ -48,6 +51,7 @@ export class FirstcompComponent implements OnInit {
   customzoom: number=16;
   locationChoseen=true;
   resize=0;
+  tempArr;
 
   mapStyles = [
     {
@@ -69,32 +73,63 @@ export class FirstcompComponent implements OnInit {
     text: '12',
     }
 
-  locations=[
-{
-  lat: 12.971564573512463,
-  lng: 77.59363521957403,
-  url: '/assets/Green.png',
-  label: 'R2'
-},
-{
-  lat: 12.971460022958762,
-  lng: 77.59676803970342,
-  url: '/assets/Red.png',
-  label: 'R24'
-},
-{lat: 12.971146371033683, lng: 77.59595264816289, 
-  url: '/assets/Red.png',
-  label: 'R34'
-}
+  locations=[]  // Array of markers
 
-  ]
+
+  myReplace(arr1,arr2){
+    arr1.forEach((data,i)=>{		
+      arr2.forEach((data1,j)=>{
+        if(data.label===data1.label){
+          if(data.lat !== data1.lat ||  data.lng !== data1.lng || data.url!== data1.url){
+            arr1[i]=arr2[j]	
+          }
+        }
+      })
+    })
+    return arr1;
+  }
+
+  objIndexOf(arr,key,value){
+    let exist=0
+    arr.forEach((data)=>{
+      if(data[key]==value){
+        exist= 1
+      }
+    })
+  return exist;	
+  }
+  
+
+
+
 
   ngOnInit() {
-    if(this.resize==1){
-     
-    this.resize=0;
+  let TempLocations;
+  let myReplace=this.myReplace;
+  let objIndexOf=this.objIndexOf
+  TempLocations=this.locations;
+  let cb=()=>{
+    if(typeof this.myservice.httpdata != 'undefined')
+    {
+      TempLocations=this.locations;
+      this.tempArr= this.myservice.httpdata.filter(function(obj) { 
+       return objIndexOf(TempLocations,'label',obj.label) !== 1; 
+        });
+      
+        this.tempArr.forEach((data)=>{
+          TempLocations.push(data)    
+        })
+      this.locations= myReplace(TempLocations,this.myservice.httpdata);
+      console.log(this.locations);
     }
   }
+  this.myservice.cb=cb;
+  setInterval(()=>{    
+    this.myservice.getAlertFunc(cb);
+  },2000)
+  }
+
+
   centerChange(e){
     console.log("ceentetr change",e);
    // this.lat=e.lat;
@@ -111,10 +146,8 @@ export class FirstcompComponent implements OnInit {
  }
 
  onClickEvent(event){
-
-  
-  this.state = (this.state === 'smaller' ? 'larger' : 'smaller');
-  this.state2 = (this.state2 === 'bsmaller' ? 'blarger' : 'bsmaller');
+  this.state =  'larger' 
+  this.state2 = 'bsmaller' 
   setTimeout(()=>{
     window.dispatchEvent(new Event('resize')); //most important line
     console.log("hiiiii")
@@ -123,7 +156,7 @@ export class FirstcompComponent implements OnInit {
     this.mlng=event.coords.lng;
    // element.classList.remove("fading");
     //melement.classList.remove("")
-  },1000);
+  },700);
 
  }
 
@@ -140,7 +173,7 @@ export class FirstcompComponent implements OnInit {
      
      // element.classList.remove("fading");
       //melement.classList.remove("")
-    },1000);
+    },700);
 
 
   

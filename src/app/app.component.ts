@@ -15,4 +15,9 @@ export class AppComponent {
       $(this).addClass("active");
     });
   }
+
+  ngOnInit() {
+   
+  }
+    
 }

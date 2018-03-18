@@ -9,6 +9,7 @@
 <agm-map [@myanime] = "state" id="ag"  [latitude]="mlat" [longitude]="mlng" [zoom]="customzoom" (mapClick)="onClickEvent($event)" 
 (centerChange)="centerChange($event)" [styles]="mapStyles"
 >
+<div class="agmmark">
   <agm-marker 
   [latitude]="location.lat" 
   [longitude]="location.lng"
@@ -18,6 +19,7 @@
   *ngFor="let location of locations; let i=index"
   >
 </agm-marker>
+</div>
 </agm-map>
 
 </div> 

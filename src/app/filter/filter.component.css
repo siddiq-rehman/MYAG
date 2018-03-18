@@ -10,6 +10,22 @@ label{margin-left: 20px;}
 #todatepicker{width:80%; margin: 0 20px 20px 20px;}
 #todatepicker > span:hover{cursor: pointer;}
 
+.firstcheck{
+    margin-left: 10px !important;
+
+}
+
+.checkbox-inline{
+    margin-left: 20px !important; 
+}
+.routecheck{
+
+    height: 30% !important;
+    overflow: auto;
+    width: 40% !important;
+    margin: 0px 20px 20px 20px;
+    
+}
 .filterdet{
 
     border-right: 2px solid black;
@@ -51,4 +67,29 @@ label{margin-left: 20px;}
 textarea{
     
       resize: none !important;
+}
+
+
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background:  rgb(128, 122, 122);; 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(128, 122, 122);; 
 }
