@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { MyserviceService, alertDetails } from '../myservice.service';
 
 @Component({
   selector: 'app-ackcarousel',
@@ -10,7 +11,9 @@ export class AckcarouselComponent implements OnInit {
 
   slideIndex :any= 1;
 
-  constructor() {
+  carouselDataArray
+
+  constructor(private myservice: MyserviceService) {
    }
 
    showSlides(n) {
@@ -56,5 +59,18 @@ export class AckcarouselComponent implements OnInit {
    // plusSlides(11);
    this.showSlides(this.slideIndex);
   }
+
+
+
+  updateCarouselData(){
+      console.log("Updating your carousel data")
+      this.carouselDataArray=this.myservice.getalertdetailsData;
+
+  }
+
+
+
+
+
 
 }

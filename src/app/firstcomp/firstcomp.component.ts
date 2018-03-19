@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { trigger,state,style,transition,animate,keyframes } from '@angular/animations'; 
 import * as $ from 'jquery';
 import { MyserviceService } from '../myservice.service';
+import { AckmentComponent } from '../ackment/ackment.component'
+
 
 @Component({
   selector: 'app-firstcomp',
@@ -39,6 +41,9 @@ import { MyserviceService } from '../myservice.service';
 
 export class FirstcompComponent implements OnInit {
 
+  @ViewChild(AckmentComponent)
+    private ackmntc: AckmentComponent;	
+
   constructor(private router: Router, private myservice: MyserviceService) { 
     this.router= router;
     let map;
@@ -46,8 +51,8 @@ export class FirstcompComponent implements OnInit {
   }
 
   title: string = 'My first AGM project';
-  mlat: number = 12.971;
-  mlng: number = 77.594;
+  mlat: number = 12.93472;
+  mlng: number = 77.7104;
   customzoom: number=16;
   locationChoseen=true;
   resize=0;
@@ -120,37 +125,36 @@ export class FirstcompComponent implements OnInit {
           TempLocations.push(data)    
         })
       this.locations= myReplace(TempLocations,this.myservice.httpdata);
-      console.log(this.locations);
+    //  console.log(this.locations);
     }
   }
   this.myservice.cb=cb;
   setInterval(()=>{    
-    this.myservice.getAlertFunc(cb);
+    this.myservice.getAlertFunc();
   },2000)
   }
 
 
   centerChange(e){
-    console.log("ceentetr change",e);
+   // console.log("ceentetr change",e);
    // this.lat=e.lat;
    // this.lng=e.lng;
   }
- cb(){
-   console.log("heello bro");
- }
+
 
 
  @HostListener('window:resize')
  onWindowResize() {
-   console.log("resize");
+  // console.log("resize");
  }
 
  onClickEvent(event){
   this.state =  'larger' 
   this.state2 = 'bsmaller' 
+  
   setTimeout(()=>{
     window.dispatchEvent(new Event('resize')); //most important line
-    console.log("hiiiii")
+   // console.log("hiiiii")
    // console.log("on click",lat,lng,index);
     this.mlat=event.coords.lat;
     this.mlng=event.coords.lng;
@@ -161,13 +165,14 @@ export class FirstcompComponent implements OnInit {
  }
 
  clickedMarker(lat,lng,index){
-    console.log("on clickede",lat,lng,index);
+   // console.log("on clickede",lat,lng,index);
     this.state = 'smaller'
     this.state2 = 'blarger'
+    this.ackmntc.getAlertDetails();
     setTimeout(()=>{
       window.dispatchEvent(new Event('resize')); //most important line
-      console.log("hiiiii")
-      console.log("on click",lat,lng,index);
+     // console.log("hiiiii")
+     // console.log("on click",lat,lng,index);
       this.mlat=lat;
       this.mlng=lng;
      

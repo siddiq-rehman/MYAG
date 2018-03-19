@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
 
 import * as $ from 'jquery';
+import { MyserviceService, alertDetails } from '../myservice.service';
+import { AckcarouselComponent } from '../ackcarousel/ackcarousel.component'
 
 @Component({
   selector: 'app-ackment',
@@ -9,9 +12,36 @@ import * as $ from 'jquery';
 })
 export class AckmentComponent implements OnInit {
 
-  constructor() { }
+  getalertdetailsData={
+    "drvusername":"abc"
+
+  };
+
+  @ViewChild(AckcarouselComponent)
+  private ackmntc: AckcarouselComponent;	
+
+  constructor(private myservice: MyserviceService) {
+
+ 
+    
+   }
+
+  
 
   ngOnInit() {
+
+  }
+
+  getAlertDetails(){
+
+      this.myservice.getalertdetails(()=>{
+
+          this.getalertdetailsData=this.myservice.getalertdetailsData[0];
+          this.ackmntc.updateCarouselData();
+      //    console.log(this.getalertdetailsData);
+
+      })
+
   }
 
   ngAfterViewInit() {

@@ -20,8 +20,9 @@ import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 
 import { MyserviceService } from './myservice.service';
-import { HttpClientModule } from '@angular/common/http';
 
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -41,6 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     DlDateTimePickerDateModule,
     BrowserAnimationsModule,
@@ -57,7 +59,7 @@ import { HttpClientModule } from '@angular/common/http';
     apiKey: 'AIzaSyAoFR6w73YwSUm8NVoodapN2zNB08u_8Xw'
   })
   ],
-  providers: [MyserviceService],
+  providers: [MyserviceService, AckmentComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
