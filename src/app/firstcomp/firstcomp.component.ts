@@ -32,7 +32,7 @@ import { AckmentComponent } from '../ackment/ackment.component'
     'white-space':'nowrap',
     transform: 'translateX(-100%)'
   })),
-  transition('bsmaller <=> blarger',animate('700ms linear'))
+  transition('bsmaller <=> blarger',animate('400ms linear'))
 ])
 
 
@@ -151,7 +151,7 @@ export class FirstcompComponent implements OnInit {
  onClickEvent(event){
   this.state =  'larger' 
   this.state2 = 'bsmaller' 
-  
+  console.log("eveent",event);
   setTimeout(()=>{
     window.dispatchEvent(new Event('resize')); //most important line
    // console.log("hiiiii")
@@ -165,25 +165,19 @@ export class FirstcompComponent implements OnInit {
  }
 
  clickedMarker(lat,lng,index){
-   // console.log("on clickede",lat,lng,index);
+    console.log("on clickede",lat,lng,index);
     this.state = 'smaller'
     this.state2 = 'blarger'
     this.ackmntc.getAlertDetails();
     setTimeout(()=>{
       window.dispatchEvent(new Event('resize')); //most important line
-     // console.log("hiiiii")
-     // console.log("on click",lat,lng,index);
+      //console.log("hiiiii")
+      console.log("on click",lat,lng,index);
       this.mlat=lat;
       this.mlng=lng;
-     
-     // element.classList.remove("fading");
+      //element.classList.remove("fading");
       //melement.classList.remove("")
     },700);
-
-
-  
-  
-
   }
 
   onIdle1(e){

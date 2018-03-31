@@ -26,6 +26,24 @@ export interface alertDetails{
         asntimage: String
 }
 
+
+export interface reportDetailsif{
+
+
+        route_alert_id: Number,
+        route_id: String,
+        alert_type: String,
+        alert_value: String,
+        ack_status: String,
+        ack_comment: String,
+        alert_datetime: String,
+        ack_datetime: String,
+        route_number: String,
+        shift: String,
+        Drvname: String,
+        AsstName: String
+}
+
 @Injectable()
 export class MyserviceService  {
 
@@ -37,7 +55,7 @@ export class MyserviceService  {
  url: String;
 
   getAlertFunc=()=> {
-     this.http.get("http://192.168.1.8:8080/rtls/rtls/v1/getcurrentrouteinfo")
+     this.http.get("http://localhost:5678/rtls/rtls/v1/getcurrentrouteinfo")
      .subscribe(     
         (data:Array<dataObj>) => {
              //   console.log("subscribed data",data)
@@ -68,18 +86,41 @@ export class MyserviceService  {
 
   getalertdetails=(cb)=> {
           console.log("get alerts")
-        this.http.get("http://192.168.1.8:8080/rtls/rtls/v1/getalertdetails/routeid/2")
+        this.http.get("http://localhost:5678/rtls/rtls/v1/getalertdetails/routeid/2")
         .subscribe(     
            (data:alertDetails) => {
                 //   console.log("subscribed data",data)
                    this.getalertdetailsData = data
-                   console.log("subscribed data alert details",this.getalertdetailsData[0]);
+                 //  console.log("subscribed data alert details",this.getalertdetailsData[0]);
                    cb();
                    
                   
            }
         )
      }
+
+
+     getReportdetailsData;
+
+getReportdetails=(cb)=>{
+//let a=[1,2,3];
+  //      cb([...a]);
+    
+  this.http.get("http://localhost:5678/routeid")
+  .subscribe(     
+     (data:reportDetailsif) => {
+           //  console.log("subscribed data",data)
+             this.getalertdetailsData = data
+           //  console.log("subscribed data alert details",this.getalertdetailsData[0]);
+             cb(data);
+             
+            
+     }
+  )
+
+
+
+}
 
 
 

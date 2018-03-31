@@ -11,16 +11,19 @@ export class AckcarouselComponent implements OnInit {
 
   slideIndex :any= 1;
 
-  carouselDataArray
+  carouselDataArray=[]
 
   constructor(private myservice: MyserviceService) {
    }
 
    showSlides(n) {
     //console.log("hello");
+//    debugger;
      var i;
-     var slides = document.getElementsByClassName("mySlides") as HTMLCollectionOf<HTMLElement>;;
+     var slides = document.getElementsByClassName("mySlides") as HTMLCollectionOf<HTMLElement>;
+    // console.log(slides);
      var dots = document.getElementsByClassName("dot");
+     //console.log(dots);
      if (n > slides.length) {this.slideIndex = 1}    
      if (n < 1) {this.slideIndex = slides.length}
     // console.log(slides.length);
@@ -45,6 +48,7 @@ export class AckcarouselComponent implements OnInit {
   }
   
   currentSlide(n) {
+    console.log("current slide",n);
     this.showSlides(this.slideIndex = n);
   }
 
@@ -57,7 +61,7 @@ export class AckcarouselComponent implements OnInit {
 
   ngAfterViewInit() {
    // plusSlides(11);
-   this.showSlides(this.slideIndex);
+  // this.showSlides(this.slideIndex);
   }
 
 
@@ -65,8 +69,15 @@ export class AckcarouselComponent implements OnInit {
   updateCarouselData(){
       console.log("Updating your carousel data")
       this.carouselDataArray=this.myservice.getalertdetailsData;
+      console.log("my ackdatta",this.carouselDataArray)
+     // this.showSlides(this.slideIndex);
+     console.log("updateCarouselData")
+     setTimeout(()=>{
+      this.showSlides(this.slideIndex);
+    }, 0);
 
   }
+
 
 
 

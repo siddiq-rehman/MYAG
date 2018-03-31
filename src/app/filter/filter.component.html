@@ -3,8 +3,8 @@
 <div class="filterdet">
     
 <label>Select From Date: </label>
-<div id="frmdatepicker" class="input-group date" data-date-format="mm-dd-yyyy">
-    <input id="frmdatesel" class="form-control" type="text" readonly />
+<div id="frmdatepicker" class="input-group date" data-date-format="mm-dd-yyyy" >
+    <input id="frmdatesel" class="form-control" type="text" readonly (onkeyup)="changefrmDate($event)"/>
     <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 </div>
 
@@ -15,60 +15,101 @@
 </div>
 
 <label for="sel1">Shift number</label>
-<div class="form-group">
-    
-    <select class="form-control" id="sel1">
-      <option>1</option>
-      <option>2</option>
-    </select>
-  </div>
+<div class="form-group" id="clickShitbox">   
+  <form id="shiftid">
+    <label class="checkbox-inline">
+      <input type="checkbox" value="1" checked>1
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="2" checked>2
+    </label>
+  </form>
+</div>
 
-  <label for="sel1">Route #</label>
 
+<label for="sel1">Route Number</label>
   <div class="routecheck">
-      <label class="firstcheck checkbox-inline">
-        <input type="checkbox" value="">Route 1
+    <form id="routecheckid">
+      <label class="checkbox-inline">
+        <input type="checkbox" value="1" checked>Route 1
       </label>
       <label class="checkbox-inline">
-        <input type="checkbox" value="">Route 2
+        <input type="checkbox" value="2" checked>Route 2
       </label>
       <label class="checkbox-inline">
-        <input type="checkbox" value="">Route 3
+        <input type="checkbox" value="3" checked>Route 3
       </label>  
       <label class="checkbox-inline">
-        <input type="checkbox" value="">Route 4
+        <input type="checkbox" value="4" checked>Route 4
       </label>
       <label class="checkbox-inline">
-        <input type="checkbox" value="">Route 5
+        <input type="checkbox" value="5" checked>Route 5
       </label>
       <label class="checkbox-inline">
-        <input type="checkbox" value="">Route 6
+        <input type="checkbox" value="6" checked>Route 6
       </label>
       <label class="checkbox-inline">
-        <input type="checkbox" value="">Route 7
+        <input type="checkbox" value="7" checked>Route 7
       </label>
       <label class="checkbox-inline">
-        <input type="checkbox" value="">Route 8
+        <input type="checkbox" value="8" checked>Route 8
       </label>
       <label class="checkbox-inline">
-        <input type="checkbox" value="">Route 9
+        <input type="checkbox" value="9" checked>Route 9
       </label>
       <label class="checkbox-inline">
-        <input type="checkbox" value="">Route 10
+        <input type="checkbox" value="10" checked>Route 10
       </label>
       <label class="checkbox-inline">
-        <input type="checkbox" value="">Route 11
+        <input type="checkbox" value="11" checked>Route 11
       </label>
-
+      <label class="checkbox-inline">
+          <input type="checkbox" value="12" checked>Route 12
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="13" checked>Route 13
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="14" checked>Route 14
+        </label>  
+        <label class="checkbox-inline">
+          <input type="checkbox" value="15" checked>Route 15
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="16" checked>Route 16
+        </label>
+        <label class="checkbox-inline" >
+          <input type="checkbox" value="17" checked>Route 17
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="18" checked>Route 18
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="19" checked>Route 19
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="20" checked>Route 20
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="21" checked>Route 21
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="22" checked>Route 22
+        </label>
+      </form>
   </div>
 
   <label for="sel1">Acknowledge status</label>
   <div class="form-group">
       
-      <select class="form-control" id="sel1">
-        <option>Yes</option>
-        <option>No</option>
-      </select>
+      <form id="ackid">
+          <label class="checkbox-inline">
+            <input type="checkbox" value="true" checked>true
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="false" checked>false
+          </label>
+        </form>
     </div>
 
 
@@ -76,6 +117,4 @@
 
 
 </div>
-
-  
 </div>

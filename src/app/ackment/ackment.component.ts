@@ -34,11 +34,12 @@ export class AckmentComponent implements OnInit {
 
   getAlertDetails(){
 
+    console.log("get alerrt details ")
       this.myservice.getalertdetails(()=>{
-
+          console.log(this.ackmntc);
           this.getalertdetailsData=this.myservice.getalertdetailsData[0];
           this.ackmntc.updateCarouselData();
-      //    console.log(this.getalertdetailsData);
+         // console.log("inside",this.getalertdetailsData);
 
       })
 

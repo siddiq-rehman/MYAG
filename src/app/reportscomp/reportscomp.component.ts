@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import * as $ from 'jquery';
+import { ReportdetailComponent } from '../reportdetail/reportdetail.component';
 
 @Component({
   selector: 'app-reportscomp',
@@ -8,13 +9,18 @@ import * as $ from 'jquery';
 })
 export class ReportscompComponent implements OnInit {
 
+  @ViewChild(ReportdetailComponent)
+  reff :ReportdetailComponent;
+
   constructor() { }
 
   ngOnInit() {
+    console.log("hello")
   }
 
   ngAfterViewInit() {
-    console.log("reeports");
+    //console.log("reeports");
+    //console.log("ref",this.reff)
     //console.log("heello view init");
     //console.log($("#mapsId").height());
    // let mapsheight=$(".repHeader").outerHeight()+$(".filter").height();

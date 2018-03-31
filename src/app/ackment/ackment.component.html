@@ -1,13 +1,13 @@
 <div id="ackc" class="container-fluid ackClass">
-        <div class="row" (click)="getAlertDetails()">
+        <div class="row">
           <div class="col-driv col-lg-2 col-sm-3">
             <div class="thumbnail img-responsive">
               
                 <img src="/assets/Image.jpg" alt="Lights" >
                 <div class="caption">
-                  <p *ngIf="getalertdetailsData">{{this.getalertdetailsData.drvusername}}</p>
-                  <p *ngIf="getalertdetailsData">{{this.getalertdetailsData.drvemail}}</p>
-                  <p *ngIf="getalertdetailsData">{{this.getalertdetailsData.drvmobile}}</p>
+                  <p *ngIf="getalertdetailsData">{{getalertdetailsData.drvusername}}</p>
+                  <p *ngIf="getalertdetailsData">{{getalertdetailsData.drvemail}}</p>
+                  <p *ngIf="getalertdetailsData">{{getalertdetailsData.drvmobile}}</p>
 
                 </div>
               
@@ -18,9 +18,9 @@
               
                 <img src="/assets/Image.jpg" alt="Lights">
                 <div class="caption">
-                    <p *ngIf="getalertdetailsData">{{this.getalertdetailsData.asntusername}}</p>
-                    <p *ngIf="getalertdetailsData">{{this.getalertdetailsData.asntemail}}</p>
-                    <p *ngIf="getalertdetailsData">{{this.getalertdetailsData.asntmobile}}</p>
+                    <p *ngIf="getalertdetailsData">{{getalertdetailsData.asntusername}}</p>
+                    <p *ngIf="getalertdetailsData">{{getalertdetailsData.asntemail}}</p>
+                    <p *ngIf="getalertdetailsData">{{getalertdetailsData.asntmobile}}</p>
  
                 </div>
               

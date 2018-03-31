@@ -23,6 +23,7 @@ import { MyserviceService } from './myservice.service';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MainComponent } from './main/main.component';
 
 
 
@@ -33,12 +34,10 @@ import { FormsModule } from '@angular/forms';
     ReportscompComponent,
     AckmentComponent,
     AckcarouselComponent,
-    
     AnimeComponent,
-    
     FilterComponent,
-    
-    ReportdetailComponent
+    ReportdetailComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +58,7 @@ import { FormsModule } from '@angular/forms';
     apiKey: 'AIzaSyAoFR6w73YwSUm8NVoodapN2zNB08u_8Xw'
   })
   ],
-  providers: [MyserviceService, AckmentComponent],
+  providers: [MyserviceService, AckmentComponent,ReportdetailComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

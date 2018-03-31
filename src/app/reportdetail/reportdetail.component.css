@@ -19,6 +19,7 @@ footer .btn-default{
 .routetable{
     
        margin: 5px;
+     
         background-color: white;
         
         border: 2px solid white !important;
@@ -35,6 +36,7 @@ thead tr th{
     color: white;
     border: 2px solid white;
     text-align: center;
+    vertical-align:middle;
 }
 
 .table-striped>tbody>tr:nth-of-type(odd) {
@@ -50,4 +52,29 @@ tbody tr td{
     color: black;
     border: 2px solid white;
     text-align: center;
+    vertical-align:middle;
+}
+
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+  
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background:  rgb(128, 122, 122);; 
+    
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(128, 122, 122);; 
 }
