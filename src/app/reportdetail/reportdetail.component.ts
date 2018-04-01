@@ -10,8 +10,8 @@ import * as $ from 'jquery';
 export class ReportdetailComponent implements OnInit {
 
 ReportDetailData=[];
-frmdate;
-todate;
+frmdate="";
+todate="";
 
 orginalReportDetailData=[];
 tempData;
@@ -32,13 +32,19 @@ tempData;
 
 
       window.addEventListener("toDatePick", (e:any)=>{
+        this.todate=e.date;
         console.log(e.date);
+        this.mainFilter();
       })    
   
       window.addEventListener("frmDatePick", (e:any)=>{
+        this.frmdate=e.date;
          console.log(e.date);
+         this.mainFilter();
       })  
-      
+
+         
+
       $('#shiftid label input:checkbox').change((e)=> {
         this.mainFilter();
       })
@@ -101,6 +107,8 @@ tempData;
   shiftFilter=true;
   ackFilter=true;
   routeFilter=true;
+  frmdateFilter=true;
+  todateFilter=true;
   temp;
 
   mainFilter(){
@@ -160,9 +168,53 @@ tempData;
       }
     });
   }
+//working till herer
+
+
+  console.log(" for from date",__this.tempData);
+
+
+  if(__this.frmdate!==""){
+console.log("hello")
+__this.frmdateFilter=false
+    if(__this.shiftFilter===true && __this.ackFilter===true && __this.ackFilter===true){
+      this.tempData=this.orginalReportDetailData;
+    }
+    __this.temp=__this.tempData;
+    __this.tempData=[];
+    __this.tempData= __this.temp.filter(element => {
+
+      //console.log(element.alert_datetime.split(" ")[0])
+      return __this.frmdate <=element.alert_datetime.split(" ")[0]
+      
+    });
+
+  }
+
+
+
+  if(__this.todate!==""){
+    console.log("hello")
+
+        if(__this.shiftFilter===true && __this.ackFilter===true && __this.ackFilter===true && __this.frmdateFilter===true){
+          this.tempData=this.orginalReportDetailData;
+        }
+        __this.temp=__this.tempData;
+        __this.tempData=[];
+        __this.tempData= __this.temp.filter(element => {
+    
+          //console.log(element.alert_datetime.split(" ")[0])
+          return __this.todate >=element.alert_datetime.split(" ")[0]
+          
+        });
+    
+    }
+
     this.ReportDetailData=this.tempData;
     __this.shiftFilter=true;
     __this.ackFilter=true;
+    __this.routeFilter=true;
+    __this.frmdateFilter=true;
   }
 
 

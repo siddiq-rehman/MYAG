@@ -19,7 +19,7 @@ import { AckmentComponent } from '../ackment/ackment.component'
     state('larger',style({
       width:'100%'
     })),
-    transition('smaller <=> larger',animate('700ms linear'))
+    transition('smaller <=> larger',animate('1000ms linear'))
  ]),
  trigger('myanime1',[
   state('bsmaller',style({
@@ -32,7 +32,7 @@ import { AckmentComponent } from '../ackment/ackment.component'
     'white-space':'nowrap',
     transform: 'translateX(-100%)'
   })),
-  transition('bsmaller <=> blarger',animate('400ms linear'))
+  transition('bsmaller <=> blarger',animate('1000ms linear'))
 ])
 
 
@@ -57,6 +57,7 @@ export class FirstcompComponent implements OnInit {
   locationChoseen=true;
   resize=0;
   tempArr;
+  ClickedMark=0;
 
   mapStyles = [
     {
@@ -107,7 +108,7 @@ export class FirstcompComponent implements OnInit {
 
 
 
-
+tempMark=[];
   ngOnInit() {
   let TempLocations;
   let myReplace=this.myReplace;
@@ -125,6 +126,19 @@ export class FirstcompComponent implements OnInit {
           TempLocations.push(data)    
         })
       this.locations= myReplace(TempLocations,this.myservice.httpdata);
+      //console.log("clicked mark",this.ClickedMark);
+      if(this.ClickedMark !==0){
+        this.tempMark= this.locations.filter((data)=>{
+         // console.log(data);
+          return data.label===this.ClickedMark;
+        })
+      // console.log(this.tempMark);
+        if(this.tempMark.length!==0){
+         // console.log("hello")
+        this.mlat=this.tempMark[0].lat;
+        this.mlng=this.tempMark[0].lng;
+        }
+      }
     //  console.log(this.locations);
     }
   }
@@ -151,6 +165,8 @@ export class FirstcompComponent implements OnInit {
  onClickEvent(event){
   this.state =  'larger' 
   this.state2 = 'bsmaller' 
+  
+  console.log("onClickEvent");
   console.log("eveent",event);
   setTimeout(()=>{
     window.dispatchEvent(new Event('resize')); //most important line
@@ -158,26 +174,32 @@ export class FirstcompComponent implements OnInit {
    // console.log("on click",lat,lng,index);
     this.mlat=event.coords.lat;
     this.mlng=event.coords.lng;
+    this.ClickedMark=0;
    // element.classList.remove("fading");
     //melement.classList.remove("")
-  },700);
+  },1300);
 
  }
 
- clickedMarker(lat,lng,index){
-    console.log("on clickede",lat,lng,index);
+ clickedMarker(lat,lng,index,url){
+    console.log("on clickede",lat,lng,index,url);
+    
+    if(url==="/assets/Red.png"){
     this.state = 'smaller'
     this.state2 = 'blarger'
-    this.ackmntc.getAlertDetails();
+    this.ackmntc.getAlertDetails(index);
     setTimeout(()=>{
       window.dispatchEvent(new Event('resize')); //most important line
       //console.log("hiiiii")
       console.log("on click",lat,lng,index);
       this.mlat=lat;
       this.mlng=lng;
+      this.ClickedMark=index;
       //element.classList.remove("fading");
       //melement.classList.remove("")
-    },700);
+    },1300);
+
+  }
   }
 
   onIdle1(e){

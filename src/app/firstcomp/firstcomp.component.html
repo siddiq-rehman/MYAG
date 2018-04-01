@@ -15,7 +15,7 @@
   [longitude]="location.lng"
   [iconUrl]="location.url"
   [label]="location.label"
-  (markerClick)="clickedMarker(location.lat,location.lng, location.label)"
+  (markerClick)="clickedMarker(location.lat,location.lng, location.label,location.url)"
   *ngFor="let location of locations; let i=index"
   >
 </agm-marker>

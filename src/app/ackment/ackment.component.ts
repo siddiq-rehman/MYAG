@@ -32,10 +32,10 @@ export class AckmentComponent implements OnInit {
 
   }
 
-  getAlertDetails(){
+  getAlertDetails(routeid){
 
     console.log("get alerrt details ")
-      this.myservice.getalertdetails(()=>{
+      this.myservice.getalertdetails(routeid,()=>{
           console.log(this.ackmntc);
           this.getalertdetailsData=this.myservice.getalertdetailsData[0];
           this.ackmntc.updateCarouselData();

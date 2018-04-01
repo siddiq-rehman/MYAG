@@ -54,7 +54,7 @@ export class MyserviceService  {
   data: dataObj;
  url: String;
 
-  getAlertFunc=()=> {
+  getAlertFunc=()=> { //To get the vehicle points on map
      this.http.get("http://localhost:5678/rtls/rtls/v1/getcurrentrouteinfo")
      .subscribe(     
         (data:Array<dataObj>) => {
@@ -84,9 +84,9 @@ export class MyserviceService  {
   getalertdetailsData;
 
 
-  getalertdetails=(cb)=> {
-          console.log("get alerts")
-        this.http.get("http://localhost:5678/rtls/rtls/v1/getalertdetails/routeid/2")
+  getalertdetails=(routeid,cb)=> {  //getting the alert and acknowledgement data
+          console.log("get alerts",routeid)
+        this.http.get("http://localhost:5678/rtls/rtls/v1/getalertdetails/routeid/"+routeid)
         .subscribe(     
            (data:alertDetails) => {
                 //   console.log("subscribed data",data)
@@ -102,7 +102,7 @@ export class MyserviceService  {
 
      getReportdetailsData;
 
-getReportdetails=(cb)=>{
+getReportdetails=(cb)=>{ //Geetting reports
 //let a=[1,2,3];
   //      cb([...a]);
     

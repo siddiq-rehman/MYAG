@@ -19,7 +19,7 @@ $(function () {
     }).datepicker('update', new Date());
   });
 
-  var fromfunction=()=>{
+ /* var fromfunction=()=>{
   $("#frmdatepicker")
   .on('changeDate', function(e) {
     console.log("frrom dadte change")
@@ -27,7 +27,7 @@ $(function () {
       // `e` here contains the extra attributes
   });
 }
-
+*/
 
   $("#todatepicker")
   .on('changeDate', function(e) {
@@ -52,6 +52,13 @@ $(function () {
     window.dispatchEvent(e12);
       // `e` here contains the extra attributes
   })
+
+
+ 
+
+
+
+
 
 
 
